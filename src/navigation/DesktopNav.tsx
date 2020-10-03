@@ -14,7 +14,7 @@ const RootContainer = styled("nav")`
   padding-bottom: 18px;
   display: flex;
   flex-flow: row nowrap;
-  height: 36px;
+  height: 28px;
 
   @media screen and (max-width: ${MAX_WIDTH_BREAKPOINT}) {
     height: 64px;
@@ -68,15 +68,15 @@ const RootContainer = styled("nav")`
     align-self: flex-end;
     text-decoration: none;
     color: black;
-    font-size: 16px;
+    font-size: 13px;
     font-weight: 500;
-    margin-right: 12px;
+    padding: 0 12px;
     transition: all 0.4s ease-out;
     &:hover {
       letter-spacing: 1px;
     }
     &:focus {
-      background: rgba(0, 0, 0, 0.1);
+      background: rgba(0, 0, 0, 0.04);
       outline: none;
     }
   }
