@@ -18,9 +18,9 @@ const RootContainer = styled("div")`
 `;
 
 export const Header = () => {
-  const [displayMenu, setdisplayMenu] = useState(false);
+  const [displayMenu, setDisplayMenu] = useState(false);
   const toggleMobileNav = () => {
-    setdisplayMenu(!displayMenu);
+    setDisplayMenu(!displayMenu);
   };
   const handleScroll = () => {
     displayMenu && toggleMobileNav();
@@ -31,7 +31,7 @@ export const Header = () => {
   const autoHideMobileNav = () => {
     const screenWidth = window.innerWidth;
     if (displayMenu && screenWidth > 768) {
-      setdisplayMenu(false);
+      setDisplayMenu(false);
     }
   };
   useEffect(() => {
