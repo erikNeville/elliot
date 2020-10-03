@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { ScreenContainer } from "./components/containers";
+import { MenuContext } from "src/context/UiContext";
 
 export const HomeScreen = () => {
+  const [isMenuOpen]: any = useContext(MenuContext);
+  console.log("HomeScreen Menu Context: ", isMenuOpen);
   return (
     <ScreenContainer>
-      <p>Home Screen</p>
+      <div style={{ height: "10000px" }}>
+        <p>Home Screen</p>
+      </div>
     </ScreenContainer>
   );
 };

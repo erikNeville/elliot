@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext, useCallback } from "react";
 import { DesktopNav } from "./DesktopNav";
 import { MobileNav } from "./MobileNav";
 import styled from "styled-components";
+import { MenuContext } from "src/context/UiContext";
 
 export type HeaderProps = {
   displayMenu: boolean;
@@ -19,12 +20,24 @@ const RootContainer = styled("div")`
 
 export const Header = () => {
   const [displayMenu, setDisplayMenu] = useState(false);
-  const toggleMobileNav = () => {
+  const [menuOpen, setMenuOpen]: any = useContext(MenuContext);
+  // const toggleMobileNav = () => {
+  //   setDisplayMenu(!displayMenu);
+  //   setMenuOpen(!menuOpen);
+  // };
+  const toggleMobileNav = useCallback(() => {
     setDisplayMenu(!displayMenu);
-  };
+    if (menuOpen) {
+      setMenuOpen(false);
+    } else {
+      setMenuOpen(true);
+    }
+  }, [displayMenu, menuOpen]);
   const handleScroll = () => {
     displayMenu && toggleMobileNav();
+    menuOpen && setMenuOpen(false);
   };
+  console.log("MENU OPEN", menuOpen);
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
   });

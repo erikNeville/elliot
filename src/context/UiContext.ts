@@ -1,5 +1,3 @@
-import React from "react";
+import { createContext } from "react";
 
-export const MenuContext = React.createContext({
-  menuEnabled: false,
-});
+export const MenuContext = createContext(false);
