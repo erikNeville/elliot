@@ -1,5 +1,9 @@
+import { useContext } from "react";
 import { MAX_WIDTH_BREAKPOINT, SCREEN_GUTTER } from "src/common/ui/shared";
 import styled from "styled-components";
+import { MenuContext } from "src/context/UiContext";
+
+const [isMenuOpen]: any = useContext(MenuContext);
 
 export const ScreenContainer = styled("div")`
   padding: 120px ${SCREEN_GUTTER} 20px ${SCREEN_GUTTER};

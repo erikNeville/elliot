@@ -76,7 +76,6 @@ export const NavMenuButton = ({
   displayMenu,
   onClick,
 }: any) => {
-  console.log(displayMenu);
   return (
     <NavButton displayMenu={displayMenu} onClick={onClick}>
       <p className="menu">{navButtonDisplay}</p>
