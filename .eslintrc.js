@@ -12,6 +12,8 @@ module.exports = {
   ],
   rules: {
     "@typescript-eslint/camelcase": "off",
+    "no-use-before-define": [0],
+    "@typescript-eslint/no-use-before-define": [0],
     "import/named": "off",
     "import/no-unresolved": "off",
     "import/order": [
