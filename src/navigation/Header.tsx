@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useContext, useCallback } from "react";
-import { MenuContext } from "src/context/UiContext";
+import React, { useCallback, useEffect } from "react";
+import { useMenuState } from "src/context/UiContext";
 import styled from "styled-components";
 
 import { DesktopNav } from "./DesktopNav";
@@ -20,42 +20,41 @@ const RootContainer = styled("div")`
 `;
 
 export const Header = () => {
-  const [displayMenu, setDisplayMenu] = useState(false);
-  const [menuOpen, setMenuOpen]: any = useContext(MenuContext);
-  // const toggleMobileNav = () => {
-  //   setDisplayMenu(!displayMenu);
-  //   setMenuOpen(!menuOpen);
-  // };
+  const { menuState, setMenuState } = useMenuState();
+
   const toggleMobileNav = useCallback(() => {
-    setDisplayMenu(!displayMenu);
-    if (menuOpen) {
-      setMenuOpen(false);
+    if (!menuState) {
+      setMenuState(true);
     } else {
-      setMenuOpen(true);
+      setMenuState(false);
     }
-  }, [displayMenu, menuOpen, setMenuOpen]);
-  const handleScroll = () => {
-    displayMenu && toggleMobileNav();
-    menuOpen && setMenuOpen(false);
-  };
-  console.log("MENU OPEN", menuOpen);
+  }, [menuState, setMenuState]);
+
+  const handleScroll = useCallback(() => {
+    menuState && toggleMobileNav();
+  }, [menuState, toggleMobileNav]);
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
   });
+
   const autoHideMobileNav = () => {
     const screenWidth = window.innerWidth;
-    if (displayMenu && screenWidth > 768) {
-      setDisplayMenu(false);
+    if (menuState && screenWidth > 768) {
+      setMenuState(false);
     }
   };
+
   useEffect(() => {
     window.addEventListener("resize", autoHideMobileNav);
   });
 
+  console.log("Menu State: ", menuState ? "Menu Is Open" : "Menu Is Closed");
+
   return (
     <RootContainer>
-      <DesktopNav displayMenu={displayMenu} toggleMobileNav={toggleMobileNav} />
-      <MobileNav displayMenu={displayMenu} toggleMobileNav={toggleMobileNav} />
+      <DesktopNav displayMenu={menuState} toggleMobileNav={toggleMobileNav} />
+      <MobileNav displayMenu={menuState} toggleMobileNav={toggleMobileNav} />
     </RootContainer>
   );
 };
