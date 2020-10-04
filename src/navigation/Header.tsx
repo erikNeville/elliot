@@ -1,8 +1,9 @@
 import React, { useEffect, useState, useContext, useCallback } from "react";
+import { MenuContext } from "src/context/UiContext";
+import styled from "styled-components";
+
 import { DesktopNav } from "./DesktopNav";
 import { MobileNav } from "./MobileNav";
-import styled from "styled-components";
-import { MenuContext } from "src/context/UiContext";
 
 export type HeaderProps = {
   displayMenu: boolean;
@@ -32,7 +33,7 @@ export const Header = () => {
     } else {
       setMenuOpen(true);
     }
-  }, [displayMenu, menuOpen]);
+  }, [displayMenu, menuOpen, setMenuOpen]);
   const handleScroll = () => {
     displayMenu && toggleMobileNav();
     menuOpen && setMenuOpen(false);

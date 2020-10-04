@@ -1,8 +1,9 @@
 import React from "react";
 import Collapse from "react-bootstrap/Collapse";
-import { NavLinks } from "./NavLinks";
 import styled from "styled-components";
+
 import { HeaderProps } from "./Header";
+import { NavLinks } from "./NavLinks";
 
 const MAX_HEIGHT = 190;
 

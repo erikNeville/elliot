@@ -1,10 +1,11 @@
 import React from "react";
+import { MAX_WIDTH_BREAKPOINT } from "src/common/ui/shared";
+import styled from "styled-components";
+
+import { HeaderProps } from "./Header";
+import { LogoButton } from "./LogoButton";
 import { NavLinks } from "./NavLinks";
 import { NavMenuButton } from "./components/NavMenuButton";
-import styled from "styled-components";
-import { LogoButton } from "./LogoButton";
-import { HeaderProps } from "./Header";
-import { MAX_WIDTH_BREAKPOINT } from "src/common/ui/shared";
 
 const RootContainer = styled("nav")`
   background: ${(props) => props.theme.primary};
