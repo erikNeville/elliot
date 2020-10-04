@@ -20,6 +20,7 @@ const RootContainer = styled("div")`
 `;
 
 export const Header = () => {
+  // The difference between the closed and open headers is 170
   const { menuState, setMenuState } = useMenuState();
 
   const toggleMobileNav = useCallback(() => {
