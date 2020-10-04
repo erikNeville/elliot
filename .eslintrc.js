@@ -21,8 +21,6 @@ module.exports = {
     "@typescript-eslint/camelcase": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-explicit-any": "off",
-    "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
 
     "import/named": "off",
