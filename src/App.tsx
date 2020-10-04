@@ -1,8 +1,9 @@
 import React, { useMemo, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+import { MenuContext } from "./context/UiContext";
 import { Header } from "./navigation/Header";
 import { HomeScreen } from "./screens/HomeScreen";
-import { MenuContext } from "./context/UiContext";
 
 export const routeNames = [
   "Painting gallery",

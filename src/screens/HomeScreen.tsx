@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
-import { ScreenContainer } from "./components/containers";
 import { MenuContext } from "src/context/UiContext";
+
+import { ScreenContainer } from "./components/containers";
 
 export const HomeScreen = () => {
   const [isMenuOpen]: any = useContext(MenuContext);

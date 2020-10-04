@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { Link } from "react-router-dom";
 import { MAX_WIDTH_BREAKPOINT } from "src/common/ui/shared";
 import styled from "styled-components";
+
 import { HeaderProps } from "./Header";
 
 const RootContainer = styled("nav")`
@@ -34,11 +35,11 @@ const RootContainer = styled("nav")`
 `;
 
 export const LogoButton = ({ displayMenu, toggleMobileNav }: HeaderProps) => {
-  const closeNav = () => {
+  const closeNav = useCallback(() => {
     if (displayMenu) {
       toggleMobileNav();
     }
-  };
+  }, [displayMenu, toggleMobileNav]);
 
   return (
     <RootContainer>

@@ -1,18 +1,19 @@
-import React from "react";
+import React, { useCallback } from "react";
+
+import { routeNames } from "../App";
 import { HeaderProps } from "./Header";
 import { NavLink } from "./components/NavLink";
-import { routeNames } from "../App";
 
 export const NavLinks = ({
   isMobileLink,
   displayMenu,
   toggleMobileNav,
 }: HeaderProps) => {
-  const closeNav = () => {
+  const closeNav = useCallback(() => {
     if (displayMenu) {
       toggleMobileNav();
     }
-  };
+  }, [displayMenu, toggleMobileNav]);
 
   let tabIndex: number | undefined;
   if (isMobileLink) {
@@ -24,7 +25,7 @@ export const NavLinks = ({
       {routeNames &&
         routeNames.map((routes: string) => {
           return (
-            <li>
+            <li key={routes}>
               <NavLink
                 closeNav={closeNav}
                 tabIndex={tabIndex}
