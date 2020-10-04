@@ -17,7 +17,7 @@ const RootContainer = styled("nav")`
   flex-flow: row nowrap;
   height: 28px;
 
-  @media screen and (max-width: ${MAX_WIDTH_BREAKPOINT}) {
+  @media screen and (max-width: ${`${MAX_WIDTH_BREAKPOINT}px`}) {
     height: 64px;
     flex-flow: column nowrap;
     justify-content: center;
@@ -35,7 +35,7 @@ const RootContainer = styled("nav")`
     -moz-animation: fadeIn ease 1s;
     -o-animation: fadeIn ease 1s;
     -ms-animation: fadeIn ease 1s;
-    @media screen and (max-width: ${MAX_WIDTH_BREAKPOINT}) {
+    @media screen and (max-width: ${`${MAX_WIDTH_BREAKPOINT}px`}) {
       display: none;
     }
     @keyframes fadeIn {

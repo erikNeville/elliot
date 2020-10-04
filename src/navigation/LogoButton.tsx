@@ -11,7 +11,7 @@ const RootContainer = styled("nav")`
   width: 40vw;
   justify-content: center;
   flex-flow: row nowrap;
-  @media screen and (max-width: ${MAX_WIDTH_BREAKPOINT}) {
+  @media screen and (max-width: ${`${MAX_WIDTH_BREAKPOINT}px`}) {
     width: 100%;
   }
 
@@ -21,7 +21,7 @@ const RootContainer = styled("nav")`
     font-size: 28px;
     text-decoration: none;
     transition: all 0.4s ease-out;
-    @media screen and (max-width: ${MAX_WIDTH_BREAKPOINT}) {
+    @media screen and (max-width: ${`${MAX_WIDTH_BREAKPOINT}px`}) {
       padding-bottom: 18px;
       font-size: 24px;
     }

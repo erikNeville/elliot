@@ -12,7 +12,7 @@ const NavButton = styled("button")<NavButtonProps>`
   font-size: 22px;
   border: none;
   display: none;
-  @media screen and (max-width: ${MAX_WIDTH_BREAKPOINT}) {
+  @media screen and (max-width: ${`${MAX_WIDTH_BREAKPOINT}px`}) {
     width: 100%;
   }
 
@@ -32,7 +32,7 @@ const NavButton = styled("button")<NavButtonProps>`
     outline: none;
   }
 
-  @media screen and (max-width: ${MAX_WIDTH_BREAKPOINT}) {
+  @media screen and (max-width: ${`${MAX_WIDTH_BREAKPOINT}px`}) {
     animation: fadeIn ease 1s;
     display: block;
     -webkit-animation: fadeIn ease 1s;

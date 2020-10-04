@@ -7,9 +7,9 @@ import { NavLinks } from "./NavLinks";
 
 const MAX_HEIGHT = 190;
 
-type MobileNavProps = Readonly<{
+type MobileNavProps = {
   displayMenu: boolean;
-}>;
+};
 
 const RootContainer = styled("nav")<MobileNavProps>`
   background: ${(props) => props.theme.primary};
@@ -17,7 +17,7 @@ const RootContainer = styled("nav")<MobileNavProps>`
   display: block;
   flex-flow: column nowrap;
   justify-content: center;
-  max-height: ${MAX_HEIGHT}px;
+  max-height: ${`${MAX_HEIGHT}px`};
   width: 100%;
 
   .nav-links {
