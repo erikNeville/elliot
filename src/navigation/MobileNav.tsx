@@ -12,7 +12,7 @@ type MobileNavProps = {
 };
 
 const RootContainer = styled("nav")<MobileNavProps>`
-  background: ${(props) => props.theme.primary};
+  background: ${(props) => props.theme.nav};
   align-self: center;
   display: block;
   flex-flow: column nowrap;
