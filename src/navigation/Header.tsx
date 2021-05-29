@@ -39,7 +39,7 @@ export const Header = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-  });
+  }, [handleScroll]);
 
   const autoHideMobileNav = () => {
     const screenWidth = window.innerWidth;

@@ -35,10 +35,12 @@ const RootContainer = styled("nav")`
 `;
 
 export const LogoButton = ({ displayMenu, toggleMobileNav }: HeaderProps) => {
+  // think about using window.scrollTo() for when the menu is open/closed
   const closeNav = useCallback(() => {
     if (displayMenu) {
       toggleMobileNav();
     }
+    window.scrollTo(0, 0);
   }, [displayMenu, toggleMobileNav]);
 
   return (

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, {useCallback} from "react";
+import React, {useCallback, useEffect} from "react";
 import {
   MAX_WIDTH_BREAKPOINT,
   OPENED_CLOSED_MENU_DIFFERENCE,
@@ -46,9 +46,30 @@ export const ScreenContainer = ({ children }: ScreenContainerProps) => {
       setMenuState(false)
     }
   }, [menuState, setMenuState]);
+  // event listener for if the window has been scrolled at all
+  // if scrollY !==0 then set scroll position to what it was PLUS MOBILE_TOP_PADDING_MENU_OPENED
+  useEffect(() => {
+    window.addEventListener("scroll", e => {
+      console.log(window.scrollY);
+    })
+  })
+
   const topPadding = menuState
     ? MOBILE_TOP_PADDING_MENU_OPENED
     : MOBILE_TOP_PADDING_MENU_CLOSED;
+
+  // const topPad = useCallback(() => {
+  //   let paddingValue = 0;
+  //   if (menuState && window.scrollY > 0) {
+  //     paddingValue = MOBILE_TOP_PADDING_MENU_OPENED + window.scrollY;
+  //   } else if (menuState && window.scrollY === 0) {
+  //     paddingValue = MOBILE_TOP_PADDING_MENU_OPENED;
+  //   }
+  //   if (!menuState) {
+  //     paddingValue = MOBILE_TOP_PADDING_MENU_CLOSED;
+  //   }
+  //   return paddingValue;
+  // }, [menuState])
 
   return (
     <div onClick={toggleMobileNav} style={{height: '100vh'}}>

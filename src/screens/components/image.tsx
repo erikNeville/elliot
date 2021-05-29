@@ -32,8 +32,8 @@ const ImageWrapper = styled("div")`
     }
   }
 
+
   .image {
-    align-self: center;
     backface-visibility: hidden;
     display: block;
     position: relative;
@@ -42,6 +42,42 @@ const ImageWrapper = styled("div")`
     opacity: 1;
     transition: all ease 0.4s;
   }
+
+  .image-div {
+    backface-visibility: hidden;
+    overflow: hidden;
+    display: block;
+    position: relative;
+    text-align: center;
+
+    p {
+      opacity: 0;
+      font-weight: bold;
+      font-size: 22px;
+      position: absolute;
+      top: 110%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      text-shadow: 2px 2px #000000;
+      background-color: rgba(63, 191, 191, 0.6);
+      border-radius: 4px;
+      padding: 4px 8px;
+    }
+
+    &:hover {
+      opacity: 0.89;
+    }
+
+    &:hover p {
+      opacity: 1;
+      top: 50%;
+      left: 50%;
+      transition: opacity, 0.45s;
+      transform: translate(-50%, -50%);
+      transition-delay: 0.02s;
+    }
+  }
 `;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -49,9 +85,12 @@ export const ImageDisplay = ({images}: any) => {
   return (
     <ImageWrapper>
       {images.map((image: Image) => (
-        <div className='image-grid' key={image.src}>
-          <img className='image' src={image.src} alt={image.title} />
-        </div>
+          <div className='image-grid' key={image.src}>
+            <div className='image-div'>
+              <img className='image' src={image.src} alt={image.title} />
+              <p>{image.title}</p>
+            </div>
+          </div>
       ))}
     </ImageWrapper>
   )
