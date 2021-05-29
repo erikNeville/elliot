@@ -52,8 +52,6 @@ export const Header = () => {
     window.addEventListener("resize", autoHideMobileNav);
   });
 
-  console.log("Menu State: ", menuState ? "Menu Is Open" : "Menu Is Closed");
-
   return (
       <RootContainer>
         <DesktopNav displayMenu={menuState} toggleMobileNav={toggleMobileNav} />
