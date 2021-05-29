@@ -1,6 +1,6 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import styled from 'styled-components';
+import React from "react";
+import { connect } from "react-redux";
+import styled from "styled-components";
 
 type Image = {
   src: string;
@@ -31,7 +31,6 @@ const ImageWrapper = styled("div")`
       margin: 1rem 1rem;
     }
   }
-
 
   .image {
     backface-visibility: hidden;
@@ -81,25 +80,26 @@ const ImageWrapper = styled("div")`
 `;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const ImageDisplay = ({images}: any) => {
+export const ImageDisplay = ({ images }: any) => {
+  console.log(images);
   return (
     <ImageWrapper>
       {images.map((image: Image) => (
-          <div className='image-grid' key={image.src}>
-            <div className='image-div'>
-              <img className='image' src={image.src} alt={image.title} />
-              <p>{image.title}</p>
-            </div>
+        <div className="image-grid" key={image.src}>
+          <div className="image-div">
+            <img className="image" src={image.src} alt={image.title} />
+            <p>{image.title}</p>
           </div>
+        </div>
       ))}
     </ImageWrapper>
-  )
-}
+  );
+};
 
-const mapStateToProps = (state: {images: {images: Image;}}) => {
-	return {
-		images: state.images.images
-	}
-}
+const mapStateToProps = (state: { images: { images: Image } }) => {
+  return {
+    images: state.images.images,
+  };
+};
 
 export default connect(mapStateToProps)(ImageDisplay);
