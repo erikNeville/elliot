@@ -8,7 +8,7 @@ import { NavLinks } from "./NavLinks";
 import { NavMenuButton } from "./components/NavMenuButton";
 
 const RootContainer = styled("nav")`
-  background: ${(props) => props.theme.primary};
+  background: ${(props) => props.theme.nav};
   align-items: center;
   justify-content: center;
   padding-top: 18px;
@@ -69,7 +69,7 @@ const RootContainer = styled("nav")`
     align-self: flex-end;
     text-decoration: none;
     color: black;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 500;
     padding: 0 12px;
     transition: all 0.4s ease-out;

@@ -1,4 +1,5 @@
-import React from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React, {useCallback} from "react";
 import {
   MAX_WIDTH_BREAKPOINT,
   OPENED_CLOSED_MENU_DIFFERENCE,
@@ -39,14 +40,28 @@ type ScreenContainerProps = Readonly<{
 }>;
 
 export const ScreenContainer = ({ children }: ScreenContainerProps) => {
-  const { menuState } = useMenuState();
+  const { menuState, setMenuState } = useMenuState();
+  const toggleMobileNav = useCallback(() => {
+    if (menuState) {
+      setMenuState(false)
+    }
+  }, [menuState, setMenuState]);
   const topPadding = menuState
     ? MOBILE_TOP_PADDING_MENU_OPENED
     : MOBILE_TOP_PADDING_MENU_CLOSED;
 
   return (
-    <RootContainer topPadding={topPadding} menuState={menuState}>
-      {children}
-    </RootContainer>
+    <div onClick={toggleMobileNav} style={{height: '100vh'}}>
+      <RootContainer topPadding={topPadding} menuState={menuState}>
+        {children}
+      </RootContainer>
+    </div>
   );
 };
+
+export const BodyContainer = styled("div")`
+  padding-top: 8px;
+  @media screen and (max-width: 768px) {
+    padding-top: 9px;
+  }
+`;

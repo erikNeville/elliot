@@ -7,6 +7,10 @@ type NavButtonProps = Readonly<{
   onClick: () => void;
 }>;
 
+type NavMenuButtonProps = Readonly<{
+  navButtonDisplay: string;
+}> & NavButtonProps;
+
 const NavButton = styled("button")<NavButtonProps>`
   background: transparent;
   font-size: 22px;
@@ -66,16 +70,11 @@ const NavButton = styled("button")<NavButtonProps>`
   }
 `;
 
-// type NavMenuButtonProps = Readonly<{
-//   navButtonDisplay: string;
-//   displayMenu: boolean;
-// }>;
-
 export const NavMenuButton = ({
   navButtonDisplay,
   displayMenu,
   onClick,
-}: any) => {
+}: NavMenuButtonProps) => {
   return (
     <NavButton displayMenu={displayMenu} onClick={onClick}>
       <p className="menu">{navButtonDisplay}</p>

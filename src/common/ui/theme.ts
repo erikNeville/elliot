@@ -1,3 +1,5 @@
 export const theme = {
-  primary: "lightgray",
+  nav: "#D3D3D3",
+  subtext: "#585858",
+  headertext: "#000000",
 };

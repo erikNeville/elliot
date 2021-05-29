@@ -17,6 +17,7 @@ const RootContainer = styled("div")`
   text-align: center;
   width: 100%;
   position: fixed;
+  z-index: 1030;
 `;
 
 export const Header = () => {
@@ -34,6 +35,7 @@ export const Header = () => {
   const handleScroll = useCallback(() => {
     menuState && toggleMobileNav();
   }, [menuState, toggleMobileNav]);
+
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -53,9 +55,9 @@ export const Header = () => {
   console.log("Menu State: ", menuState ? "Menu Is Open" : "Menu Is Closed");
 
   return (
-    <RootContainer>
-      <DesktopNav displayMenu={menuState} toggleMobileNav={toggleMobileNav} />
-      <MobileNav displayMenu={menuState} toggleMobileNav={toggleMobileNav} />
-    </RootContainer>
+      <RootContainer>
+        <DesktopNav displayMenu={menuState} toggleMobileNav={toggleMobileNav} />
+        <MobileNav displayMenu={menuState} toggleMobileNav={toggleMobileNav} />
+      </RootContainer>
   );
 };
