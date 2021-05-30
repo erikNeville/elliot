@@ -1,15 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-import { ImageDisplay } from "./image";
-type Image = {
-  src: string;
-  title: string;
-  category: string;
-  medium: string;
-  w: string;
-  h: string;
-};
-export const MusicImages = ({ images }: any) => {
+import ImageDisplay, { Image } from "./image";
+
+// for each image in the image list, display it
+// if the category is true
+
+const MusicImages = () => {
   return <ImageDisplay />;
 };
 

@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 
-type Image = {
+export type Image = {
   src: string;
   title: string;
   category: string;
@@ -81,6 +81,7 @@ const ImageWrapper = styled("div")`
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const ImageDisplay = ({ images }: any) => {
+  // ImageDisplay needs to take in a category prop
   console.log(images);
   return (
     <ImageWrapper>

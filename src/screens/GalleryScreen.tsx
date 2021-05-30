@@ -2,7 +2,7 @@ import React from "react";
 
 import { ScreenContainer } from "./components/containers";
 
-import { MusicImages } from "./components/categorizedImages";
+import MusicImages from "./components/categorizedImages";
 
 export const GalleryScreen = () => {
   // return to top of page button
