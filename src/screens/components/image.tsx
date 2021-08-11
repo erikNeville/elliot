@@ -19,6 +19,7 @@ const ImageWrapper = styled("div")`
   flex-flow: row nowrap;
   justify-content: center;
   align-content: center;
+  flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   overflow: hidden;
@@ -65,7 +66,7 @@ const ImageWrapper = styled("div")`
     }
 
     &:hover {
-      opacity: 0.89;
+      opacity: 0.95;
     }
 
     &:hover p {
@@ -89,7 +90,9 @@ export const ImageDisplay = ({ images }: any) => {
         <div className="image-grid" key={image.src}>
           <div className="image-div">
             <img className="image" src={image.src} alt={image.title} />
+            <button>
             <p>{image.title}</p>
+            </button>
           </div>
         </div>
       ))}

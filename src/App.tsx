@@ -12,7 +12,7 @@ import { AboutScreen } from "./screens/AboutScreen";
 import { CommissionsScreen } from "./screens/CommissionsScreen";
 import { ContactScreen } from "./screens/ContactScreen";
 import { EventsShowcasesScreen } from "./screens/EventsShowcasesScreen";
-import { GalleryScreen } from "./screens/GalleryScreen";
+import GalleryScreen  from "./screens/GalleryScreen";
 import { HomeScreen } from "./screens/HomeScreen";
 
 export const routeNames = [
@@ -41,7 +41,7 @@ function App() {
         <Header />
         <Switch>
           <Route exact path="/" component={HomeScreen} />
-          <Route path="/painting" component={GalleryScreen} />
+          <Route path="/gallery" component={GalleryScreen} />
           <Route path="/about" component={AboutScreen} />
           <Route path="/contact" component={ContactScreen} />
           <Route path="/commissions" component={CommissionsScreen} />

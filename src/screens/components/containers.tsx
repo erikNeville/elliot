@@ -48,12 +48,6 @@ export const ScreenContainer = ({ children }: ScreenContainerProps) => {
   }, [menuState, setMenuState]);
   // event listener for if the window has been scrolled at all
   // if scrollY !==0 then set scroll position to what it was PLUS MOBILE_TOP_PADDING_MENU_OPENED
-  useEffect(() => {
-    window.addEventListener("scroll", e => {
-      console.log(window.scrollY);
-    })
-  })
-
   const topPadding = menuState
     ? MOBILE_TOP_PADDING_MENU_OPENED
     : MOBILE_TOP_PADDING_MENU_CLOSED;

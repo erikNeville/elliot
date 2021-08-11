@@ -1,10 +1,11 @@
 import React from "react";
-
-import { ScreenContainer } from "./components/containers";
+import {connect } from 'react-redux';
 
 import MusicImages from "./components/categorizedImages";
+import { ScreenContainer } from "./components/containers";
 
-export const GalleryScreen = () => {
+
+const GalleryScreen = () => {
   // return to top of page button
   return (
     <ScreenContainer>
@@ -13,3 +14,12 @@ export const GalleryScreen = () => {
     </ScreenContainer>
   );
 };
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const mapStateToProps = (state: any) => {
+  return {
+    images: state.images.images, 
+  };
+};
+
+export default connect(mapStateToProps)(GalleryScreen);

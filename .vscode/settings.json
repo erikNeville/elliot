@@ -1,5 +1,6 @@
 {
 	"cSpell.words": [
 		"headertext"
-	]
+	],
+	"editor.formatOnSave": true
 }
