@@ -1,7 +1,7 @@
 import React from "react";
 
 import { ScreenContainer } from "./components/containers";
-import ImageDisplay from "./components/image";
+import {ImageDisplay} from "./components/image";
 
 export const HomeScreen = () => {
   return (

@@ -1,13 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import {ABOUT_ARTIST_TITLE, ABOUT_ARTIST_TEXT, ABOUT_ART_TITLE, ABOUT_ART_TEXT_1, ABOUT_ART_TEXT_2, ABOUT_ART_TEXT_3} from '../common/strings';
+import cosmic_tiger from '../assets/images/cosmic_tiger.jpg';
+import {aboutStrings as strings} from '../common/strings';
 import {ScreenContainer} from './components/containers';
 
-const Photo = styled("div")`
+const ImageBanner = styled("div")`
 	height: 300px;
 	margin-bottom: 24px;
-	background-color: #000000;
+	.image {
+		width: 100%;
+		height: 300px;
+		object-position: 50% 30%;
+		object-fit: cover;
+	}
 `;
 
 const AboutHeader = styled("h3")`
@@ -25,13 +31,15 @@ const AboutText = styled("p")`
 export const AboutScreen = () => {
 	return (
 		<ScreenContainer>
-			<Photo />
-			<AboutHeader>{ABOUT_ARTIST_TITLE}</AboutHeader>
-			<AboutText>{ABOUT_ARTIST_TEXT}</AboutText>
-			<AboutHeader>{ABOUT_ART_TITLE}</AboutHeader>
-			<AboutText>{ABOUT_ART_TEXT_1}</AboutText>
-			<AboutText>{ABOUT_ART_TEXT_2}</AboutText>
-			<AboutText>{ABOUT_ART_TEXT_3}</AboutText>
+			<ImageBanner>
+				<img className="image" src={cosmic_tiger} alt="Cosmic Tiger Queen 24x48" />
+			</ImageBanner>
+			<AboutHeader>{strings.ABOUT_ARTIST_TITLE}</AboutHeader>
+			<AboutText>{strings.ABOUT_ARTIST_TEXT}</AboutText>
+			<AboutHeader>{strings.ABOUT_ART_TITLE}</AboutHeader>
+			<AboutText>{strings.ABOUT_ART_TEXT_1}</AboutText>
+			<AboutText>{strings.ABOUT_ART_TEXT_2}</AboutText>
+			<AboutText>{strings.ABOUT_ART_TEXT_3}</AboutText>
 			<br />
 		</ScreenContainer>
 	)

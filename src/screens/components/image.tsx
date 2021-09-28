@@ -23,7 +23,6 @@ const ImageWrapper = styled("div")`
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   overflow: hidden;
-
   .image-grid {
     margin: 1rem 2rem;
     position: relative;
@@ -32,70 +31,103 @@ const ImageWrapper = styled("div")`
       margin: 1rem 1rem;
     }
   }
-
   .image {
     backface-visibility: hidden;
     display: block;
     position: relative;
-    width: 100%;
-    height: auto;
-    opacity: 1;
+    max-height: 504px;
     transition: all ease 0.4s;
   }
-
   .image-div {
     backface-visibility: hidden;
     overflow: hidden;
     display: block;
     position: relative;
     text-align: center;
+    transition: all ease 0.4s;
+  }
+`;
 
-    p {
-      opacity: 0;
-      font-weight: bold;
-      font-size: 22px;
-      position: absolute;
-      top: 110%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: white;
-      text-shadow: 2px 2px #000000;
-      background-color: rgba(63, 191, 191, 0.6);
-      border-radius: 4px;
-      padding: 4px 8px;
-    }
-
-    &:hover {
-      opacity: 0.95;
-    }
-
-    &:hover p {
-      opacity: 1;
-      top: 50%;
-      left: 50%;
-      transition: opacity, 0.45s;
-      transform: translate(-50%, -50%);
-      transition-delay: 0.02s;
-    }
+const ImageInfo = styled("div")`
+  display: flex;
+  text-align: center;
+  flex-flow: column nowrap;
+  padding-top: 12px;
+  line-height: 4px;
+  .info {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+  }
+  .title {
+    font-weight: 600;
+    font-size: 16px;
+    flex-wrap: wrap;
+    padding-bottom: 14px;
+  }
+  .medium {
+    justify-self: flex-end;
+    font-size: 14px;
+  }
+  .size {
+    font-size: 14px;
   }
 `;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const ImageDisplay = ({ images }: any) => {
-  // ImageDisplay needs to take in a category prop
-  console.log(images);
+const ConnectedImageDisplay = ({ images }: any) => {
+  // const music = images.filter((image: any) => image.category === "music");
+  // console.log(music);
   return (
     <ImageWrapper>
-      {images.map((image: Image) => (
-        <div className="image-grid" key={image.src}>
-          <div className="image-div">
-            <img className="image" src={image.src} alt={image.title} />
-            <button>
-            <p>{image.title}</p>
-            </button>
+      {images &&
+        images.map((image: Image) => (
+          <div className="image-grid" key={image.src}>
+            <div className="image-div">
+              <img className="image" src={image.src} alt={image.title} />
+            </div>
+            <ImageInfo>
+              <div className="title">
+                <p>{image.title}</p>
+              </div>
+              <div className="info">
+                <p className="size">
+                  {image.w}&quot; X {image.h}&quot; <strong>|</strong>
+                </p>
+                <p className="medium">&nbsp;{image.medium}</p>
+              </div>
+            </ImageInfo>
           </div>
-        </div>
-      ))}
+        ))}
+    </ImageWrapper>
+  );
+};
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const ConnectedCategoryImageDisplay = ({ images, category }: any) => {
+  return (
+    <ImageWrapper>
+      {images &&
+        images
+          .filter((image: Image) => image.category === category)
+          .map((image: Image) => (
+            <div className="image-grid" key={image.src}>
+              <div className="image-div">
+                <img className="image" src={image.src} alt={image.title} />
+              </div>
+              <ImageInfo>
+                <div className="title">
+                  <p>{image.title}</p>
+                </div>
+                <div className="info">
+                  <p className="size">
+                    {image.w}&quot; X {image.h}&quot; <strong>|</strong>
+                  </p>
+                  <p className="medium">&nbsp;{image.medium}</p>
+                </div>
+              </ImageInfo>
+            </div>
+          ))}
     </ImageWrapper>
   );
 };
@@ -106,4 +138,8 @@ const mapStateToProps = (state: { images: { images: Image } }) => {
   };
 };
 
-export default connect(mapStateToProps)(ImageDisplay);
+export const ImageDisplay = connect(mapStateToProps)(ConnectedImageDisplay);
+
+export const CategoryImageDisplay = connect(mapStateToProps)(
+  ConnectedCategoryImageDisplay,
+);

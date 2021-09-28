@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, {useCallback, useEffect} from "react";
+import React, {useCallback} from "react";
 import {
   MAX_WIDTH_BREAKPOINT,
   OPENED_CLOSED_MENU_DIFFERENCE,
@@ -39,6 +39,10 @@ type ScreenContainerProps = Readonly<{
   children: React.ReactNode;
 }>;
 
+const ScreenDiv = styled("div")`
+  height: 100vh;
+`;
+
 export const ScreenContainer = ({ children }: ScreenContainerProps) => {
   const { menuState, setMenuState } = useMenuState();
   const toggleMobileNav = useCallback(() => {
@@ -66,11 +70,11 @@ export const ScreenContainer = ({ children }: ScreenContainerProps) => {
   // }, [menuState])
 
   return (
-    <div onClick={toggleMobileNav} style={{height: '100vh'}}>
+    <ScreenDiv onClick={toggleMobileNav}>
       <RootContainer topPadding={topPadding} menuState={menuState}>
         {children}
       </RootContainer>
-    </div>
+    </ScreenDiv>
   );
 };
 
