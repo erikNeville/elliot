@@ -18,6 +18,7 @@ const ImageLink = styled("img")`
 `;
 
 export const GalleryLink = ({ category, imgAlt, imgSrc }: OwnProps) => {
+  // TODO: Make images square and same size
   return (
     <Link
       to={{

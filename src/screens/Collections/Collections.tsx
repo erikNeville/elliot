@@ -15,7 +15,7 @@ const CollectionTitle = styled("div")`
 
 export const Collections = ({ location }: RouteComponentProps) => {
   const collectionState = location.state as ICollection;
-  const category = collectionState.category;
+  const category = collectionState && collectionState.category;
   const formatTitle = useCallback((str: string) => {
     return str
       .replace("-", " ")
@@ -26,9 +26,6 @@ export const Collections = ({ location }: RouteComponentProps) => {
 
   return (
     <ScreenContainer>
-      <CollectionTitle>
-        <h2>{formatTitle(category)} Collection</h2>
-      </CollectionTitle>
       <CategoryImageDisplay category={category} />
     </ScreenContainer>
   );

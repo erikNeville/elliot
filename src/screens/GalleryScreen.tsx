@@ -93,7 +93,7 @@ const LinkInfo = styled("div")`
 `;
 
 export const GalleryScreen = () => {
-  // TODO: return to top of page button
+  // TODO: return to top of page button. Update category titles
 
   const formatTitle = useCallback((str: string) => {
     return str

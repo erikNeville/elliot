@@ -8,6 +8,7 @@ import { NavLinks } from "./NavLinks";
 import { NavMenuButton } from "./components/NavMenuButton";
 
 const RootContainer = styled("nav")`
+  // TODO: Black nav background with white text
   background: ${(props) => props.theme.nav};
   align-items: center;
   justify-content: center;
